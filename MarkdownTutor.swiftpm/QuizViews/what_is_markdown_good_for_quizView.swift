@@ -12,7 +12,7 @@ struct what_is_markdown_good_for_quizView:View {
     let question_1:Fill_In_The_Blank_Question = Fill_In_The_Blank_Question(question: "Markdown is good for _  everything ?", placeholder: "**********", correct_answer: "f9f9c04813a46502873a0c2a3d361ce8")
     
     let question_2:Multiple_Choice_Question = Multiple_Choice_Question(question: "Markdown is good for ?", selections: ["websites","documents","notes","books","presentations","email","collaboration","scripts"], correctAnswer: ["1dd6473a75df4ac65f0911dbafee927f","21f64da1e5792c8295b964d159a14491","4358b5009c67d0e31d7fbf1663fcd3bf","7d8949bcbf85067fceda9f84a6affb6b","78b85e002131f08b636e58bb814adc68","0c83f57c786a0b4a39efab23731c7ebc","11a7a5d55a91adb201e113967eff93fe"])
-        
+    
     @State var isShowingDialog = false
     @State var isShowingCongrats = false
     
@@ -20,7 +20,7 @@ struct what_is_markdown_good_for_quizView:View {
         VStack{
             ScrollView{
                 Fill_In_The_Blank_View(question: question_1)
-                Multiple_Choice_View(question: question_2).frame(minWidth: UIScreen.main.bounds.width/2,minHeight: 500)
+                Multiple_Choice_View(question: question_2).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 500)
             }
             Spacer()
             Button(action: {

@@ -13,9 +13,9 @@ struct Mark_As_Done:ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(10)
-//            .frame(minWidth: 0, maxWidth: UIScreen.main.bounds.width/2)
+        //            .frame(minWidth: 0, maxWidth: UIScreen.main.bounds.width/2)
             .foregroundColor(Color.white)
             .background(stauts ? Color.green : Color.blue)
-            .cornerRadius(10)        
+            .cornerRadius(10)
     }
 }

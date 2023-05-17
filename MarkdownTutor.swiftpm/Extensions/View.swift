@@ -12,7 +12,7 @@ import SwiftUI
 // call our action
 struct DeviceRotationViewModifier: ViewModifier {
     let action: (UIDeviceOrientation) -> Void
-
+    
     func body(content: Content) -> some View {
         content
             .onAppear()

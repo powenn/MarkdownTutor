@@ -64,7 +64,6 @@ struct Editing_View:View{
                     default:
                         break
                     }
-                    
                 }){
                     switch $view_index.wrappedValue {
                     case 0 :
