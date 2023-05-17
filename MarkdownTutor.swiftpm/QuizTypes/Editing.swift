@@ -28,10 +28,12 @@ struct Editing_View:View{
             VStack{
                 if (is_show_template) {
                     Text(question.md_string)
+                        .font(.body)
                         .padding()
                         .border(Color.secondary)
                 } else {
                     Text("Try write some markdown to produce the result below")
+                        .fontWeight(.medium)
                     Markdown(question.md_string)
                         .padding()
                         .border(Color.secondary)
@@ -40,6 +42,7 @@ struct Editing_View:View{
             VStack{
                 if (!is_show_rendered) {
                     TextEditor(text: $editArea)
+                        .font(.body)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .border(Color.secondary)
@@ -68,12 +71,18 @@ struct Editing_View:View{
                     switch $view_index.wrappedValue {
                     case 0 :
                         Label(is_show_template ? "Question" :"Template", systemImage: "eyes")
+                            .font(.body)
                     case 1:
                         Label("Switch", systemImage: "square.2.layers.3d")
+                            .font(.body)
                     default:
                         EmptyView()
                     }
-                }.padding()
+                }
+                .padding(5)
+                .background(Color.primary.opacity(0.15))
+                .cornerRadius(10)
+                .padding()
             }
             .onTapGesture {
                 hideKeyboard()

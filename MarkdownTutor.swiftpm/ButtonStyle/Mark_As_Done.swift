@@ -12,6 +12,8 @@ struct Mark_As_Done:ButtonStyle {
     var stauts:Bool
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .font(.body)
+            .fontWeight(.semibold)
             .padding(10)
         //            .frame(minWidth: 0, maxWidth: UIScreen.main.bounds.width/2)
             .foregroundColor(Color.white)

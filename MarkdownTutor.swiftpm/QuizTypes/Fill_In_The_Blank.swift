@@ -33,8 +33,10 @@ struct Fill_In_The_Blank_View:View{
     var body: some View{
         VStack(alignment: .leading){
             Text(question.question)
+                .fontWeight(.medium)
             HStack {
                 TextField(question.placeholder, text: $answer)
+                    .font(.body)
                     .textFieldStyle(.roundedBorder)
                     .textInputAutocapitalization(.never)
                 Button(action: {

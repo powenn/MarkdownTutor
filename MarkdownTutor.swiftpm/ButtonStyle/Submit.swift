@@ -12,6 +12,8 @@ struct Submit:ButtonStyle {
     var stauts:Bool
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .font(.body)
+            .fontWeight(.semibold)
             .padding(10)
             .foregroundColor(Color.white)
             .background(stauts ? Color.green : Color.blue)

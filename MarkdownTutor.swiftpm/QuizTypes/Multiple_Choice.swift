@@ -37,8 +37,10 @@ struct Multiple_Choice_View:View{
     var body: some View{
         VStack(alignment: .leading){
             Text(question.question)
+                .fontWeight(.medium)
             List(question.selections, id:\.self, selection: $multiSelection) { selection in
                 Text(selection)
+                    .font(.body)
             }.listStyle(.inset)
                 .environment(\.editMode, .constant(EditMode.active))
             Button(action: {

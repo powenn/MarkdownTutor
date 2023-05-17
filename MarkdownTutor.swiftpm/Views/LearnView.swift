@@ -21,6 +21,7 @@ struct LearnView: View {
             List(ChaptersData, selection: $selectedChapter) { ch in
                 NavigationLink(value: ch) {
                     Text(ch.title)
+                        .font(.headline)
                 }
             }.navigationTitle("Chapters")
         } content: {
@@ -28,9 +29,10 @@ struct LearnView: View {
                 NavigationLink(value: pa) {
                     HStack {
                         Text(pa.title)
+                            .font(.body)
                         Spacer()
                         if (pa.hasChallenge) {
-                            Image(systemName: "checkmark.seal")
+                            Image(systemName: "checkmark.seal.fill")
                                 .foregroundColor(getDefaults(p: pa) ? Color.green : Color.gray)
                         }
                     }

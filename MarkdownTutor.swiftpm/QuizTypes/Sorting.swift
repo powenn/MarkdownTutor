@@ -37,9 +37,11 @@ struct Sorting_View:View{
     var body: some View{
         VStack(alignment: .leading){
             Text(question.question)
+                .fontWeight(.medium)
             List{
                 ForEach(items,id: \.self){item in
                     Text(item)
+                        .font(.body)
                 }.onMove { from, to in
                     items.move(fromOffsets: from, toOffset: to)
                 }
