@@ -23,6 +23,10 @@ struct QuizView: View {
             headings_quizView()
         case .paragraphs:
             paragraphs_quizView()
+        case .line_breaks:
+            line_breaks_quizView()
+        case .emphasis:
+            emphasis_quizView()
         default :
             default_quizView(caseRawValue: quiz_case.rawValue)
         }

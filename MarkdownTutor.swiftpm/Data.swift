@@ -43,6 +43,10 @@ class Defaults: ObservableObject {
     headings_is_done = false
     @AppStorage(QuizCase.paragraphs.rawValue) public var
     paragraphs_is_done = false
+    @AppStorage(QuizCase.line_breaks.rawValue) public var
+    line_breaks_is_done = false
+    @AppStorage(QuizCase.emphasis.rawValue) public var
+    emphasis_is_done = false
 }
 
 func getDefaults(p :Paragraph) -> Bool {
@@ -59,6 +63,10 @@ func getDefaults(p :Paragraph) -> Bool {
         return Defaults.shared.headings_is_done
     case .paragraphs:
         return Defaults.shared.paragraphs_is_done
+    case .line_breaks:
+        return Defaults.shared.line_breaks_is_done
+    case .emphasis:
+        return Defaults.shared.emphasis_is_done
     default:
         return false
     }
@@ -103,7 +111,7 @@ let Headings:Paragraph = Paragraph(title: "Headings", text: String(data: FileMan
 
 let Paragraphs:Paragraph = Paragraph(title: "Paragraphs", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Paragraphs.md"))!, encoding: .utf8)!, hasQuiz: true, quizCase: .paragraphs)
 
-let Line_Breaks:Paragraph = Paragraph(title: "Line Breaks", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Line_Breaks.md"))!, encoding: .utf8)!, hasQuiz: false, quizCase: nil)
+let Line_Breaks:Paragraph = Paragraph(title: "Line Breaks", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Line_Breaks.md"))!, encoding: .utf8)!, hasQuiz: true, quizCase: .line_breaks)
 
 let Emphasis:Paragraph = Paragraph(title: "Emphasis", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Emphasis.md"))!, encoding: .utf8)!, hasQuiz: true, quizCase: .emphasis)
 

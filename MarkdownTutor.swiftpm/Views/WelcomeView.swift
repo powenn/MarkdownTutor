@@ -27,14 +27,14 @@ struct WelcomeView: View {
                     startClick =  true
                 }, label: {
                     Text("Start")
-                        .font(.system(size: 30))
+                        .font(.system(size: 20))
                         .fontWeight(.semibold)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 15.0)
                                 .stroke(lineWidth: 3.0)
                                 .foregroundColor(Color.secondary)
-                                .frame(width: UIScreen.main.bounds.height/6, height: UIScreen.main.bounds.height/15)
+                                .frame(minWidth: UIScreen.main.bounds.height/6)
                         )
                 })
             }.padding()

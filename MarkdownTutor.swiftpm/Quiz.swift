@@ -16,6 +16,7 @@ enum QuizCase:String {
     case what_is_markdown_good_for = "what_is_markdown_good_for"
     case headings = "headings"
     case paragraphs = "paragraphs"
+    case line_breaks = "line_breaks"
     case emphasis = "emphasis"
     case blockquotes = "blockquotes"
     case lists = "lists"

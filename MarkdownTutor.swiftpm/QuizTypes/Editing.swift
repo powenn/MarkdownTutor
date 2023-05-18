@@ -88,5 +88,7 @@ struct Editing_View:View{
             .onTapGesture {
                 hideKeyboard()
             }
+            .border(Color.primary)
+            .padding(5)
     }
 }
