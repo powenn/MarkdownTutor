@@ -27,6 +27,10 @@ struct QuizView: View {
             line_breaks_quizView()
         case .emphasis:
             emphasis_quizView()
+        case .blockquotes:
+            blockquotes_quizView()
+        case .lists:
+            lists_quizView()
         default :
             default_quizView(caseRawValue: quiz_case.rawValue)
         }

@@ -27,7 +27,7 @@ paragraph3
         VStack{
             ScrollView{
                 Editing_View(question: question_1)
-                    .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 350)
+                    .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 400)
             }
             Spacer()
             Button(action: {
@@ -46,7 +46,7 @@ paragraph3
                 Button("I haven't", role: .cancel) {
                 }
             }
-            Spacer(minLength: 80)
+            Spacer(minLength: 50)
         }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, now you should know how to create paragraphs in markdown", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
             .backgroundColor(.black.opacity(0.4))})
         

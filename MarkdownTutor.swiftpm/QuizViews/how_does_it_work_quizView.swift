@@ -43,8 +43,8 @@ struct how_does_it_work_quizView:View {
                 Button("I haven't", role: .cancel) {
                 }
             }
-            Spacer(minLength: 80)
-        }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, now you understand hot markdwon works", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
+            Spacer(minLength: 50)
+        }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, now you understand how markdwon works", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
             .backgroundColor(.black.opacity(0.4))})
     }
 }

@@ -39,7 +39,7 @@ struct what_is_markdown_good_for_quizView:View {
                 Button("I haven't", role: .cancel) {
                 }
             }
-            Spacer(minLength: 80)
+            Spacer(minLength: 50)
         }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, we are close to basic syntax chapter", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
             .backgroundColor(.black.opacity(0.4))})
     }

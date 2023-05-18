@@ -54,7 +54,7 @@ struct LearnView: View {
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 .navigationTitle(selectedParagraph?.title ?? "")
                 .navigationBarTitleDisplayMode(.inline)
-            }.ignoresSafeArea(.keyboard,edges: .bottom)
+            }//.ignoresSafeArea(.keyboard,edges: .bottom)
         }
         .navigationSplitViewStyle(.prominentDetail)
     }

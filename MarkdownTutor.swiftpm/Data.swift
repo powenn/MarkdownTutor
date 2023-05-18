@@ -47,6 +47,10 @@ class Defaults: ObservableObject {
     line_breaks_is_done = false
     @AppStorage(QuizCase.emphasis.rawValue) public var
     emphasis_is_done = false
+    @AppStorage(QuizCase.blockquotes.rawValue) public var
+    blockquotes_is_done = false
+    @AppStorage(QuizCase.lists.rawValue) public var
+    lists_is_done = false
 }
 
 func getDefaults(p :Paragraph) -> Bool {
@@ -67,6 +71,10 @@ func getDefaults(p :Paragraph) -> Bool {
         return Defaults.shared.line_breaks_is_done
     case .emphasis:
         return Defaults.shared.emphasis_is_done
+    case .blockquotes:
+        return Defaults.shared.blockquotes_is_done
+    case .lists:
+        return Defaults.shared.lists_is_done
     default:
         return false
     }

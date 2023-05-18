@@ -5,6 +5,7 @@
 //  Created by 蕭博文 on 2023/5/16.
 //
 
+
 import Foundation
 import SwiftUI
 import MarkdownUI
@@ -35,8 +36,10 @@ struct Editing_View:View{
                     Text("Try write some markdown to produce the result below")
                         .fontWeight(.medium)
                     Markdown(question.md_string)
+                        .markdownTheme(.gitHub)
                         .padding()
                         .border(Color.secondary)
+                        .padding()
                 }
             }.tag(0)
             VStack{
@@ -51,8 +54,10 @@ struct Editing_View:View{
                     Text("Rendered output")
                         .fontWeight(.medium)
                     Markdown(editArea)
+                        .markdownTheme(.gitHub)
                         .padding()
                         .border(Color.secondary)
+                        .padding()
                 }
             }.tag(1)
             

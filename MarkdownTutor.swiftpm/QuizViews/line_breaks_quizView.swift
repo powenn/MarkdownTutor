@@ -44,8 +44,8 @@ This is the second line
                 Button("I haven't", role: .cancel) {
                 }
             }
-            Spacer(minLength: 80)
-        }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, now you should know how to create headings in markdown", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
+            Spacer(minLength: 50)
+        }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, now you should know how to create a line break", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
             .backgroundColor(.black.opacity(0.4))})
     }
 }
