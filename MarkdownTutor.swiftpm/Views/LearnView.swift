@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  LearnView.swift
 //  
 //
 //  Created by 蕭博文 on 2023/5/11.
@@ -31,7 +31,7 @@ struct LearnView: View {
                         Text(pa.title)
                             .font(.body)
                         Spacer()
-                        if (pa.hasChallenge) {
+                        if (pa.hasQuiz) {
                             Image(systemName: "checkmark.seal.fill")
                                 .foregroundColor(getDefaults(p: pa) ? Color.green : Color.gray)
                         }
@@ -46,7 +46,7 @@ struct LearnView: View {
                             Markdown(selectedParagraph?.text ?? "# Click the button on top left to choose content to read").markdownTheme(.gitHub)
                         }.padding()
                     }
-                    if (selectedParagraph?.hasChallenge ?? false){
+                    if (selectedParagraph?.hasQuiz ?? false){
                         QuizView(quiz_case: (selectedParagraph?.quizCase)!)
                     }
                 }

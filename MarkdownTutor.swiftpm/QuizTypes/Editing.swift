@@ -49,6 +49,7 @@ struct Editing_View:View{
                         .padding(10)
                 } else {
                     Text("Rendered output")
+                        .fontWeight(.medium)
                     Markdown(editArea)
                         .padding()
                         .border(Color.secondary)
