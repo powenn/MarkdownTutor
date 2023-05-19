@@ -30,6 +30,20 @@ struct blockquotes_quizView:View {
 paragraph outside
 """)
     
+    let question_4:Fixing_Up_Question = Fixing_Up_Question(md_string: """
+First line
+
+> A blockquote
+
+Last line
+""")
+    
+    @State var question_4_fixing_editArea:String = """
+First line
+> A blockquote
+Last line
+"""
+    
     @State var isShowingDialog = false
     @State var isShowingCongrats = false
     
@@ -41,6 +55,8 @@ paragraph outside
                     .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 350)
                 Editing_View(question: question_3)
                     .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 450)
+                Fixing_Up_View(question: question_4, editArea: $question_4_fixing_editArea)
+                    .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 350)
             }
             Spacer()
             Button(action: {

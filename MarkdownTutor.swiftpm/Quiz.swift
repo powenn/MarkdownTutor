@@ -25,11 +25,14 @@ enum QuizCase:String {
     case blockquotes = "blockquotes"
     case lists = "lists"
     case code = "code"
+    case horizontal_rules = "horizontal_rules"
     case escaping_characters = "escaping_characters"
     
     // ExtendedSyntax
     case tables = "tables"
     case fenced_code_blocks = "fenced_code_blocks"
+    case strikethrough = "strikethrough"
+    case task_lists = "task_lists"
 }
 
 struct WrongAnswerNotify: View {

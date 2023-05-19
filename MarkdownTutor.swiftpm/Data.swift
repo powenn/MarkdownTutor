@@ -57,6 +57,8 @@ class Defaults: ObservableObject {
     lists_is_done = false
     @AppStorage(QuizCase.code.rawValue) public var
     code_is_done = false
+    @AppStorage(QuizCase.horizontal_rules.rawValue) public var
+    horizontal_rules_is_done = false
     @AppStorage(QuizCase.escaping_characters.rawValue) public var
     escaping_characters_is_done = false
     
@@ -65,6 +67,10 @@ class Defaults: ObservableObject {
     tables_is_done = false
     @AppStorage(QuizCase.fenced_code_blocks.rawValue) public var
     fenced_code_blocks_is_done = false
+    @AppStorage(QuizCase.strikethrough.rawValue) public var
+    strikethrough_is_done = false
+    @AppStorage(QuizCase.task_lists.rawValue) public var
+    task_lists_is_donw = false
     
 }
 
@@ -96,6 +102,8 @@ func getDefaults(p :Paragraph) -> Bool {
         return Defaults.shared.lists_is_done
     case .code:
         return Defaults.shared.code_is_done
+    case .horizontal_rules:
+        return Defaults.shared.horizontal_rules_is_done
     case .escaping_characters:
         return Defaults.shared.escaping_characters_is_done
         
@@ -104,6 +112,11 @@ func getDefaults(p :Paragraph) -> Bool {
         return Defaults.shared.tables_is_done
     case .fenced_code_blocks:
         return Defaults.shared.fenced_code_blocks_is_done
+    case .strikethrough:
+        return Defaults.shared.strikethrough_is_done
+    case .task_lists:
+        return Defaults.shared.task_lists_is_donw
+        
     default:
         return false
     }
@@ -158,7 +171,7 @@ let Lists:Paragraph = Paragraph(title: "Lists", text: String(data: FileManager.d
 
 let Code:Paragraph = Paragraph(title: "Code", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Code.md"))!, encoding: .utf8)!, hasQuiz: true, quizCase: .code)
 
-let Horizontal_Rules = Paragraph(title: "Horizontal Rules", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Horizontal_Rules.md"))!, encoding: .utf8)!, hasQuiz: false, quizCase: nil)
+let Horizontal_Rules = Paragraph(title: "Horizontal Rules", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Horizontal_Rules.md"))!, encoding: .utf8)!, hasQuiz: true, quizCase: .horizontal_rules)
 
 let Links = Paragraph(title: "Links", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Links.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
 
@@ -187,9 +200,9 @@ let Heading_IDs:Paragraph = Paragraph(title: "Heading IDs", text: String(data: F
 
 let Definition_Lists :Paragraph = Paragraph(title: "Definition Lists", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Definition_Lists.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
 
-let Strikethrough:Paragraph = Paragraph(title: "Strikethrough", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Strikethrough.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
+let Strikethrough:Paragraph = Paragraph(title: "Strikethrough", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Strikethrough.md"))!,encoding: .utf8)!, hasQuiz: true, quizCase: .strikethrough)
 
-let Task_Lists:Paragraph = Paragraph(title: "Task Lists", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Task_Lists.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
+let Task_Lists:Paragraph = Paragraph(title: "Task Lists", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Task_Lists.md"))!,encoding: .utf8)!, hasQuiz: true, quizCase: .task_lists)
 
 let Using_Emoji_Shortcodes:Paragraph = Paragraph(title: "Using Emoji Shortcodes", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Using_Emoji_Shortcodes.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
 

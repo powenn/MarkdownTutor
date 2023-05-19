@@ -18,6 +18,16 @@ struct escaping_characters_quizView:View {
 \\- item
 """)
     
+    let question_2:Fixing_Up_Question = Fixing_Up_Question(md_string: """
+This is \\*\\*\\*bold and italic\\*\\*\\*<br>
+\\[link\\]\\(https://example.com\\)<br>
+""")
+    
+    @State var question_2_fixing_editArea:String = """
+This is ***bold and italic***<br>
+[link](https://example.com)
+"""
+    
     @State var isShowingDialog = false
     @State var isShowingCongrats = false
     
@@ -25,6 +35,7 @@ struct escaping_characters_quizView:View {
         VStack{
             ScrollView{
                 Editing_View(question: question_1).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 350)
+                Fixing_Up_View(question: question_2, editArea: $question_2_fixing_editArea).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 300)
             }
             Spacer()
             Button(action: {

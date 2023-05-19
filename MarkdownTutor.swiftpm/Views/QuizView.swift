@@ -37,6 +37,8 @@ struct QuizView: View {
             lists_quizView()
         case .code:
             code_quizView()
+        case .horizontal_rules:
+            horizontal_rules_quizView()
         case .escaping_characters:
             escaping_characters_quizView()
             
@@ -45,6 +47,11 @@ struct QuizView: View {
             tables_quizView()
         case .fenced_code_blocks:
             fenced_code_blocks_quizView()
+        case .strikethrough:
+            strikethrough_quizView()
+        case .task_lists:
+            task_lists_quizView()
+            
         default :
             default_quizView(caseRawValue: quiz_case.rawValue)
         }

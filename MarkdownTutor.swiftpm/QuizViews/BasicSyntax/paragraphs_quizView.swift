@@ -20,6 +20,19 @@ paragraph2
 paragraph3
 """)
     
+    
+    let question_2:Fixing_Up_Question = Fixing_Up_Question(md_string: """
+    paragraph 1
+    
+    paragraph 2
+    """)
+    
+    @State var question_2_fixing_editArea:String = """
+        paragraph 1
+    
+    paragraph 2
+"""
+    
     @State var isShowingDialog = false
     @State var isShowingCongrats = false
     
@@ -28,6 +41,8 @@ paragraph3
             ScrollView{
                 Editing_View(question: question_1)
                     .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 400)
+                Fixing_Up_View(question: question_2, editArea: $question_2_fixing_editArea)
+                    .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 300)
             }
             Spacer()
             Button(action: {
