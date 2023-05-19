@@ -34,7 +34,6 @@ struct lists_quizView:View {
                 Fill_In_The_Blank_View(question: question_1)
                 Multiple_Choice_View(question: question_2).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 500)
                 Editing_View(question: question_3).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 400)
-                   
             }
             Spacer()
             Button(action: {

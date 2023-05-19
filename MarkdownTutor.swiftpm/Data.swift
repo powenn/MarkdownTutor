@@ -33,12 +33,16 @@ struct Paragraph: Identifiable, Hashable {
 
 class Defaults: ObservableObject {
     public static let shared = Defaults()
+    
+    // GettingStarted
     @AppStorage(QuizCase.what_is_markdown.rawValue) public var what_is_markdown_is_done = false
     @AppStorage(QuizCase.why_use_markdown.rawValue) public var why_use_markdown_is_done = false
     @AppStorage(QuizCase.how_does_it_work.rawValue) public var
     how_does_it_work_is_done = false
     @AppStorage(QuizCase.what_is_markdown_good_for.rawValue) public var
     what_is_markdown_good_for_is_done = false
+    
+    // BasicSyntax
     @AppStorage(QuizCase.headings.rawValue) public var
     headings_is_done = false
     @AppStorage(QuizCase.paragraphs.rawValue) public var
@@ -51,10 +55,23 @@ class Defaults: ObservableObject {
     blockquotes_is_done = false
     @AppStorage(QuizCase.lists.rawValue) public var
     lists_is_done = false
+    @AppStorage(QuizCase.code.rawValue) public var
+    code_is_done = false
+    @AppStorage(QuizCase.escaping_characters.rawValue) public var
+    escaping_characters_is_done = false
+    
+    // ExtendedSyntax
+    @AppStorage(QuizCase.tables.rawValue) public var
+    tables_is_done = false
+    @AppStorage(QuizCase.fenced_code_blocks.rawValue) public var
+    fenced_code_blocks_is_done = false
+    
 }
 
 func getDefaults(p :Paragraph) -> Bool {
     switch p.quizCase {
+        
+        // GettingStarted
     case .what_is_markdown :
         return Defaults.shared.what_is_markdown_is_done
     case .why_use_markdown :
@@ -63,6 +80,8 @@ func getDefaults(p :Paragraph) -> Bool {
         return Defaults.shared.how_does_it_work_is_done
     case .what_is_markdown_good_for:
         return Defaults.shared.what_is_markdown_good_for_is_done
+        
+        // BasicSyntax
     case .headings :
         return Defaults.shared.headings_is_done
     case .paragraphs:
@@ -75,6 +94,16 @@ func getDefaults(p :Paragraph) -> Bool {
         return Defaults.shared.blockquotes_is_done
     case .lists:
         return Defaults.shared.lists_is_done
+    case .code:
+        return Defaults.shared.code_is_done
+    case .escaping_characters:
+        return Defaults.shared.escaping_characters_is_done
+        
+        // ExtendedSyntax
+    case .tables:
+        return Defaults.shared.tables_is_done
+    case .fenced_code_blocks:
+        return Defaults.shared.fenced_code_blocks_is_done
     default:
         return false
     }
@@ -127,11 +156,11 @@ let Blockquotes:Paragraph = Paragraph(title: "Blockquotes", text: String(data: F
 
 let Lists:Paragraph = Paragraph(title: "Lists", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Lists.md"))!, encoding: .utf8)!, hasQuiz: true, quizCase: .lists)
 
-let Code:Paragraph = Paragraph(title: "Code", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Code.md"))!, encoding: .utf8)!, hasQuiz: false, quizCase: nil)
+let Code:Paragraph = Paragraph(title: "Code", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Code.md"))!, encoding: .utf8)!, hasQuiz: true, quizCase: .code)
 
 let Horizontal_Rules = Paragraph(title: "Horizontal Rules", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Horizontal_Rules.md"))!, encoding: .utf8)!, hasQuiz: false, quizCase: nil)
 
-let Links = Paragraph(title: "Links", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Links.md"))!,encoding: .utf8)!, hasQuiz: true, quizCase: .links)
+let Links = Paragraph(title: "Links", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Links.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
 
 let Images = Paragraph(title: "Images", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Images.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
 
@@ -150,7 +179,7 @@ let Availability:Paragraph = Paragraph(title: "Availability", text: String(data:
 
 let Tables:Paragraph = Paragraph(title: "Tables", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Tables.md"))!,encoding: .utf8)!, hasQuiz: true, quizCase: .tables)
 
-let Fenced_Code_Blocks:Paragraph  = Paragraph(title: "Fenced Code Blocks", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Fenced_Code_Blocks.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
+let Fenced_Code_Blocks:Paragraph  = Paragraph(title: "Fenced Code Blocks", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Fenced_Code_Blocks.md"))!,encoding: .utf8)!, hasQuiz: true, quizCase: .fenced_code_blocks)
 
 let Footnotes:Paragraph = Paragraph(title: "Footnotes", text: String(data: FileManager.default.contents(atPath: assetsPath.appending("/Footnotes.md"))!,encoding: .utf8)!, hasQuiz: false, quizCase: nil)
 

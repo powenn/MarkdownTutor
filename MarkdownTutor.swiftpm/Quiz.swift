@@ -10,19 +10,26 @@ import SwiftUI
 import PopupView
 
 enum QuizCase:String {
+    
+    // GettingStarted
     case what_is_markdown = "what_is_markdown"
     case why_use_markdown = "why_use_markdown"
     case how_does_it_work =  "how_does_it_work"
     case what_is_markdown_good_for = "what_is_markdown_good_for"
+    
+    // BasicSyntax
     case headings = "headings"
     case paragraphs = "paragraphs"
     case line_breaks = "line_breaks"
     case emphasis = "emphasis"
     case blockquotes = "blockquotes"
     case lists = "lists"
-    case links = "links"
+    case code = "code"
     case escaping_characters = "escaping_characters"
+    
+    // ExtendedSyntax
     case tables = "tables"
+    case fenced_code_blocks = "fenced_code_blocks"
 }
 
 struct WrongAnswerNotify: View {

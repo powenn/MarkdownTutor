@@ -11,6 +11,8 @@ struct QuizView: View {
     var quiz_case:QuizCase
     var body: some View {
         switch quiz_case {
+            
+            // GettingStarted
         case .what_is_markdown:
             what_is_markdown_quizView()
         case .why_use_markdown:
@@ -19,6 +21,8 @@ struct QuizView: View {
             how_does_it_work_quizView()
         case .what_is_markdown_good_for:
             what_is_markdown_good_for_quizView()
+            
+            // BasicSyntax
         case .headings:
             headings_quizView()
         case .paragraphs:
@@ -31,6 +35,16 @@ struct QuizView: View {
             blockquotes_quizView()
         case .lists:
             lists_quizView()
+        case .code:
+            code_quizView()
+        case .escaping_characters:
+            escaping_characters_quizView()
+            
+            // ExtendedSyntax
+        case .tables:
+            tables_quizView()
+        case .fenced_code_blocks:
+            fenced_code_blocks_quizView()
         default :
             default_quizView(caseRawValue: quiz_case.rawValue)
         }
