@@ -14,7 +14,7 @@ struct task_lists_quizView:View {
     let question_1:Editing_Question = Editing_Question(md_string: """
 - [X] Tutorial parts
 - [ ] Quiz parts
-- [ ] Probably some challenge ?
+- [ ] A simple playground
 - [ ] Quick experience mode
 """)
         

@@ -14,7 +14,11 @@ struct MainView: View {
                 .tabItem {
                     Label("Learn", systemImage: "book.fill")
                 }
-            ExportView()
+            PlaygroundsView()
+                .tabItem{
+                    Label("Playground",systemImage: "square.and.pencil")
+                }
+            OthersView()
                 .tabItem {
                     Label("Others", systemImage: "ellipsis")
                 }

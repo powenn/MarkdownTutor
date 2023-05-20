@@ -34,7 +34,8 @@ let package = Package(
             ],
             capabilities: [
                 .fileAccess(.userSelectedFiles, mode: .readWrite)
-            ]
+            ],
+            appCategory: .education
         )
     ],
     dependencies: [
