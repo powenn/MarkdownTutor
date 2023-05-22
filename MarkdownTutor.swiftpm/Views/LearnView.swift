@@ -39,22 +39,20 @@ struct LearnView: View {
                 }
             }.navigationTitle("Paragraphs")
         } detail: {
-//            GeometryReader{ geo in
-                TabView() {
-                    ScrollView{
-                        VStack{
-                            Markdown(selectedParagraph?.text ?? "# Click the button on top left to choose content to read").markdownTheme(.gitHub)
-                        }.padding()
-                    }
-                    if (selectedParagraph?.hasQuiz ?? false){
-                        QuizView(quiz_case: (selectedParagraph?.quizCase)!)
-                    }
+            TabView() {
+                ScrollView{
+                    VStack{
+                        Markdown(selectedParagraph?.text ?? "# Click the button on top left to choose content to read").markdownTheme(.gitHub)
+                    }.padding()
                 }
-                .tabViewStyle(PageTabViewStyle())
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                .navigationTitle(selectedParagraph?.title ?? "")
-                .navigationBarTitleDisplayMode(.inline)
-            //}.ignoresSafeArea(.keyboard,edges: .bottom)
+                if (selectedParagraph?.hasQuiz ?? false){
+                    QuizView(quiz_case: (selectedParagraph?.quizCase)!)
+                }
+            }
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .navigationTitle(selectedParagraph?.title ?? "")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .navigationSplitViewStyle(.prominentDetail)
     }

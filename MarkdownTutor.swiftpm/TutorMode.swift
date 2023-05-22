@@ -8,6 +8,6 @@
 import Foundation
 
 enum TutorMode:String {
-    case beginner = "beginner"
-    case standard = "standard"
+    case beginner = "Beginner"
+    case standard = "Standard"
 }

@@ -51,9 +51,9 @@ struct QuizView: View {
             strikethrough_quizView()
         case .task_lists:
             task_lists_quizView()
-            
-        default :
-            default_quizView(caseRawValue: quiz_case.rawValue)
+
+//        default :
+//            default_quizView(caseRawValue: quiz_case.rawValue)
         }
     }
 }
