@@ -1,5 +1,5 @@
 //
-//  WelcomeView.swift
+//  HomeView.swift
 //  MarkdownTutor
 //
 //  Created by 蕭博文 on 2023/5/10.
@@ -8,8 +8,15 @@
 import SwiftUI
 import MarkdownUI
 
-struct WelcomeView: View {
+struct HomeView: View {
     @Binding var startClick:Bool
+    @State var showTutorial = false
+    
+    @Binding var selectedMode:TutorMode
+    // Try binding with content view
+    
+    let tutorModes:[TutorMode] = [.beginner,.standard]
+    
     var body: some View {
         VStack{
             Spacer()
@@ -22,6 +29,19 @@ struct WelcomeView: View {
                 )
             Markdown("# ***MarkdownTutor***")
             Spacer()
+            VStack{
+                Picker("Select mode", selection: $selectedMode) {
+                    ForEach(tutorModes, id: \.self) { mode in
+                        Text(mode.rawValue)
+                            .font(.body)
+                    }
+                }
+                Button("How to use this app", action: {
+                    showTutorial.toggle()
+                }).fullScreenCover(isPresented: $showTutorial, content: {
+                    TutorialView()
+                }).font(.body)
+            }.padding()
             VStack {
                 Button(action: {
                     startClick =  true
@@ -37,7 +57,7 @@ struct WelcomeView: View {
                                 .frame(minWidth: UIScreen.main.bounds.height/6)
                         )
                 })
-            }.padding()
+            }// .padding()
         }.padding()
     }
 }

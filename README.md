@@ -6,6 +6,8 @@ so it won't require network connection for most features
 
 And I might submit it to Apple WWDC Student Challenge 2024 :)
 
+**Xcode is required to open this project**
+
 ## Features
 
 - Incudes Basic syntax, Extended syntax, CheetSheet
@@ -13,7 +15,7 @@ And I might submit it to Apple WWDC Student Challenge 2024 :)
 - A playground allows you to writing some markdown freely and able to copy to clipboard or export as file
     > Just a simple playground for basic markdown editing since this is not a "Markdown Editor project"
 - Exporting iPA for sideloading after developer mode enable
-    > Try to find it without reading source code :) 
+    > Can you find it without reading source code :) 
 - iPhone and iPad are both support, requires iOS 16 or above
 
 ## To-Do list

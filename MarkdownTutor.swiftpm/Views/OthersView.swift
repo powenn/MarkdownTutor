@@ -11,27 +11,40 @@ import MarkdownUI
 
 struct OthersView:View{
     
+    @Environment(\.dismiss) var dismiss
     @AppStorage("developer_mode") var developer_mode = false
     @State var tapCount = 0
+    @State var showTutorial = false
     
     var body: some View{
         NavigationStack{
             Form(){
-                Section(content: {
+                Section("Version", content: {
                     Text("Version : \(appVersion!)")
-                        .onTapGesture {
-                            tapCount+=1
-                        }
+                }).onTapGesture {
+                    tapCount+=1
+                }
+                
+                Section("General", content: {
                     NavigationLink("About this app"){
                         README_View()
                     }
+                    
+                    
+                   Button("How to use this app", action: {
+                       showTutorial.toggle()
+                   }).fullScreenCover(isPresented: $showTutorial, content: {
+                       TutorialView()
+                   })
+                    
+                    Link("Source code", destination: URL(string: "https://github.com/powenn/MarkdownTutor")!)
                     if (tapCount>=6 || developer_mode) {
                         Toggle("Developer Mode", isOn: $developer_mode)
                     }
-                }, header: {
-                    Text("General")
-                }, footer: {
-                    Text("Made by powenn on github")
+                })
+                
+                Button("Back to home", action: {
+                    dismiss()
                 })
                 
                 if (developer_mode){
@@ -39,6 +52,11 @@ struct OthersView:View{
                         ExportView()
                     })
                 }
+                
+                Section(content: {}, footer: {
+                    Text("Made by powenn on github")
+                })
+                
             }
         }
     }
@@ -51,5 +69,7 @@ struct README_View:View{
                 .markdownTheme(.gitHub)
                 .padding()
         }
+        .navigationTitle("About this app")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
