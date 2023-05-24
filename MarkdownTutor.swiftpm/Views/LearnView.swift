@@ -14,7 +14,7 @@ struct LearnView: View {
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
     @State private var isLoadingData = false
     @State private var mdContent:String = ""
-    
+    @ObservedObject var defaults = Defaults()
     var body: some View {
         
         NavigationSplitView(columnVisibility: $columnVisibility) {
@@ -33,7 +33,7 @@ struct LearnView: View {
                         Spacer()
                         if (pa.hasQuiz) {
                             Image(systemName: "checkmark.seal.fill")
-                                .foregroundColor(getDefaults(p: pa) ? Color.green : Color.gray)
+                                .foregroundColor(defaults.getDefaults(p: pa) ? Color.green : Color.gray)
                         }
                     }
                 }

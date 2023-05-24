@@ -67,55 +67,57 @@ class Defaults: ObservableObject {
     @AppStorage(QuizCase.task_lists.rawValue) public var
     task_lists_is_donw = false
     
-}
-
-func getDefaults(p :Paragraph) -> Bool {
-    switch p.quizCase {
-        
-        // GettingStarted
-    case .what_is_markdown :
-        return Defaults.shared.what_is_markdown_is_done
-    case .why_use_markdown :
-        return Defaults.shared.why_use_markdown_is_done
-    case .how_does_it_work:
-        return Defaults.shared.how_does_it_work_is_done
-    case .what_is_markdown_good_for:
-        return Defaults.shared.what_is_markdown_good_for_is_done
-        
-        // BasicSyntax
-    case .headings :
-        return Defaults.shared.headings_is_done
-    case .paragraphs:
-        return Defaults.shared.paragraphs_is_done
-    case .line_breaks:
-        return Defaults.shared.line_breaks_is_done
-    case .emphasis:
-        return Defaults.shared.emphasis_is_done
-    case .blockquotes:
-        return Defaults.shared.blockquotes_is_done
-    case .lists:
-        return Defaults.shared.lists_is_done
-    case .code:
-        return Defaults.shared.code_is_done
-    case .horizontal_rules:
-        return Defaults.shared.horizontal_rules_is_done
-    case .escaping_characters:
-        return Defaults.shared.escaping_characters_is_done
-        
-        // ExtendedSyntax
-    case .tables:
-        return Defaults.shared.tables_is_done
-    case .fenced_code_blocks:
-        return Defaults.shared.fenced_code_blocks_is_done
-    case .strikethrough:
-        return Defaults.shared.strikethrough_is_done
-    case .task_lists:
-        return Defaults.shared.task_lists_is_donw
-        
-    default:
-        return false
+    
+    
+    func getDefaults(p :Paragraph) -> Bool {
+        switch p.quizCase {
+            
+            // GettingStarted
+        case .what_is_markdown :
+            return Defaults.shared.what_is_markdown_is_done
+        case .why_use_markdown :
+            return Defaults.shared.why_use_markdown_is_done
+        case .how_does_it_work:
+            return Defaults.shared.how_does_it_work_is_done
+        case .what_is_markdown_good_for:
+            return Defaults.shared.what_is_markdown_good_for_is_done
+            
+            // BasicSyntax
+        case .headings :
+            return Defaults.shared.headings_is_done
+        case .paragraphs:
+            return Defaults.shared.paragraphs_is_done
+        case .line_breaks:
+            return Defaults.shared.line_breaks_is_done
+        case .emphasis:
+            return Defaults.shared.emphasis_is_done
+        case .blockquotes:
+            return Defaults.shared.blockquotes_is_done
+        case .lists:
+            return Defaults.shared.lists_is_done
+        case .code:
+            return Defaults.shared.code_is_done
+        case .horizontal_rules:
+            return Defaults.shared.horizontal_rules_is_done
+        case .escaping_characters:
+            return Defaults.shared.escaping_characters_is_done
+            
+            // ExtendedSyntax
+        case .tables:
+            return Defaults.shared.tables_is_done
+        case .fenced_code_blocks:
+            return Defaults.shared.fenced_code_blocks_is_done
+        case .strikethrough:
+            return Defaults.shared.strikethrough_is_done
+        case .task_lists:
+            return Defaults.shared.task_lists_is_donw
+            
+        default:
+            return false
+        }
     }
 }
+
 
 let ChaptersData:[Chapter] =  [GettingStarted,BasicSyntax,ExtendedSyntax,MarkdownCheatSheet]
 

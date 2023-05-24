@@ -1,5 +1,5 @@
 //
-//  Lessons.swift
+//  Lesson.swift
 //  
 //
 //  Created by 蕭博文 on 2023/5/22.
@@ -7,6 +7,9 @@
 
 import Foundation
 import SwiftUI
+import MarkdownUI
+
+
 
 enum Lesson:String {
     case intro = "Intro"
@@ -16,26 +19,13 @@ enum Lesson:String {
     case lesson4 = "Lesson 4"
 }
 
-struct Intro_View:View{
-    var body: some View{
-        VStack{
-            Text("Intro to markdown")
-        }
-    }
-}
-
-struct Lesson_1_View:View{
-    var body: some View{
-        VStack{
-            Text("1")
-        }
-    }
-}
 
 struct Lesson_2_View:View{
     var body: some View{
-        VStack{
-            Text("2")
+        ScrollView{
+            VStack{
+                Text("2")
+            }
         }
     }
 }

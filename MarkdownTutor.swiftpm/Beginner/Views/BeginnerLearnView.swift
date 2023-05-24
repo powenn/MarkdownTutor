@@ -9,14 +9,13 @@ import SwiftUI
 import MarkdownUI
 
 struct BeginnerLearnView: View {
-    
+    @ObservedObject var beginnerdefaults = BeginnerDefaults()
     let lessons:[Lesson] = [.intro,.lesson1,.lesson2,.lesson3,.lesson4]
-    
     var body: some View {
         
         NavigationStack {
             List(lessons, id: \.self) { lesson in
-                NavigationLink(lesson.rawValue) {
+                NavigationLink {
                     switch lesson {
                     case .intro:
                         Intro_View()
@@ -39,10 +38,31 @@ struct BeginnerLearnView: View {
                             .navigationTitle(lesson.rawValue)
                             .navigationBarTitleDisplayMode(.inline)
                     }
-                }.font(.headline)
+                } label: {
+                    HStack {
+                        Text(lesson.rawValue)
+                        Spacer()
+                        Image(systemName: "checkmark.seal.fill")
+                            .foregroundColor(beginnerdefaults.getDefaults(l: lesson) ? Color.green : Color.gray)
+                        
+                    }
+                }
+                .font(.headline)
             }
             .navigationTitle("Lessons")
         }
     }
 }
 
+//struct BeginnerStatusView:View{
+//    @State var lesson:Lesson
+//    var body: some View{
+//        HStack {
+//            Text(lesson.rawValue)
+//            Spacer()
+//            Image(systemName: "checkmark.seal.fill")
+//                .foregroundColor(getBeginnerDefaults(l: lesson) ? Color.green : Color.gray)
+//            
+//        }
+//    }
+//}
