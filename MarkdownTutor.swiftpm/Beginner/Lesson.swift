@@ -7,8 +7,6 @@
 
 import Foundation
 import SwiftUI
-import MarkdownUI
-
 
 
 enum Lesson:String {
@@ -19,16 +17,6 @@ enum Lesson:String {
     case lesson4 = "Lesson 4"
 }
 
-
-struct Lesson_2_View:View{
-    var body: some View{
-        ScrollView{
-            VStack{
-                Text("2")
-            }
-        }
-    }
-}
 
 struct Lesson_3_View:View{
     var body: some View{
