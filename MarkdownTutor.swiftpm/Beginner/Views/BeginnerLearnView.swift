@@ -16,28 +16,9 @@ struct BeginnerLearnView: View {
         NavigationStack {
             List(lessons, id: \.self) { lesson in
                 NavigationLink {
-                    switch lesson {
-                    case .intro:
-                        Intro_View()
-                            .navigationTitle(lesson.rawValue)
-                            .navigationBarTitleDisplayMode(.inline)
-                    case .lesson1 :
-                        Lesson_1_View()
-                            .navigationTitle(lesson.rawValue)
-                            .navigationBarTitleDisplayMode(.inline)
-                    case .lesson2:
-                        Lesson_2_View()
-                            .navigationTitle(lesson.rawValue)
-                            .navigationBarTitleDisplayMode(.inline)
-                    case .lesson3:
-                        Lesson_3_View()
-                            .navigationTitle(lesson.rawValue)
-                            .navigationBarTitleDisplayMode(.inline)
-                    case .lesson4:
-                        Lesson_4_View()
-                            .navigationTitle(lesson.rawValue)
-                            .navigationBarTitleDisplayMode(.inline)
-                    }
+                    beginnerlearnView(lesson: lesson)
+                        .navigationTitle(lesson.rawValue)
+                        .navigationBarTitleDisplayMode(.inline)
                 } label: {
                     HStack {
                         Text(lesson.rawValue)
@@ -54,15 +35,20 @@ struct BeginnerLearnView: View {
     }
 }
 
-//struct BeginnerStatusView:View{
-//    @State var lesson:Lesson
-//    var body: some View{
-//        HStack {
-//            Text(lesson.rawValue)
-//            Spacer()
-//            Image(systemName: "checkmark.seal.fill")
-//                .foregroundColor(getBeginnerDefaults(l: lesson) ? Color.green : Color.gray)
-//            
-//        }
-//    }
-//}
+struct beginnerlearnView:View{
+    var lesson:Lesson
+    var body: some View{
+        switch lesson {
+        case .intro:
+            Intro_View()
+        case .lesson1 :
+            Lesson_1_View()
+        case .lesson2:
+            Lesson_2_View()
+        case .lesson3:
+            Lesson_3_View()
+        case .lesson4:
+            Lesson_4_View()
+        }
+    }
+}

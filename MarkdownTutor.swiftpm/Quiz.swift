@@ -42,7 +42,7 @@ struct WrongAnswerNotify: View {
                 .foregroundColor(.white)
                 .frame(width: 24, height: 24)
             
-            Text("This is not the correct answer, try harder !")
+            Text("This is not the correct answer")
                 .foregroundColor(.white)
                 .font(.system(size: 16))
         }

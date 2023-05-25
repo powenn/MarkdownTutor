@@ -13,7 +13,6 @@ struct Sorting_Question{
     let correctAnswer:[String]
     init(question: String, correctAnswer: [String]) {
         self.question = question
-        //        self.items = items.shuffled()
         self.correctAnswer = correctAnswer
     }
 }

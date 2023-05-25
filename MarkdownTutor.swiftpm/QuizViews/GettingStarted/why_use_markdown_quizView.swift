@@ -22,7 +22,7 @@ struct why_use_markdown_quizView:View {
     var body:some View{
         VStack{
             ScrollView{
-                Multiple_Choice_View(question: question_1).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 400)
+                Multiple_Choice_View(question: question_1).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 550)
                 Divider()
                 Multiple_Choice_View(question: question_2).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 400)
             }

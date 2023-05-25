@@ -18,7 +18,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "com.powen.MarkdownTutor",
             teamIdentifier: "6ZU6RS59RC",
-            displayVersion: "1.0",
+            displayVersion: "0.1",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .pencil),
             accentColor: .presetColor(.blue),

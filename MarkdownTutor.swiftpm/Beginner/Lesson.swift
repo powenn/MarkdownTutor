@@ -16,12 +16,3 @@ enum Lesson:String {
     case lesson3 = "Lesson 3"
     case lesson4 = "Lesson 4"
 }
-
-
-struct Lesson_4_View:View{
-    var body: some View{
-        VStack{
-            Text("4")
-        }
-    }
-}

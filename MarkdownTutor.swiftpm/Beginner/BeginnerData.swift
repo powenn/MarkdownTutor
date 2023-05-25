@@ -9,12 +9,6 @@ import Foundation
 import SwiftUI
 
 
-//struct Lesson: Identifiable, Hashable {
-//    let title: String
-//    let id = UUID()
-//    let isDone:Bool
-//}
-
 class BeginnerDefaults: ObservableObject {
     public static let shared = BeginnerDefaults()
     
