@@ -13,7 +13,7 @@ struct Lesson_2_View:View{
     
     
     let tut:String = """
-# Lesson 1
+# Lesson 2
 > In this lesson, you will learn how to add emphasis and create a blockquote.
 
 - Emphasis
@@ -29,8 +29,6 @@ Add two asterisks or underscores before and after a word or phrase.
 For Example :<br>
 \\*\\*Bold\\*\\*
 
----
-
 ### Italic
 
 Add one asterisk or underscore before and after a word or phrase.
@@ -41,6 +39,21 @@ For Example :<br>
 > You can adjust the number of asterisks to see the rendered output of different number of number asterisks.
 """
     
+
+    
+    let tut2:String = """
+---
+
+## Blockquotes
+
+Add a > in front of a paragraph to create a blockquote.
+
+For example :<br>
+`> A line in blocakquote`
+
+The rendered output looks like this:
+> A line in blocakquote
+"""
     
     @State var isShowingDialog = false
     @State var isShowingCongrats = false
@@ -51,6 +64,8 @@ For Example :<br>
                 Markdown(tut).markdownTheme(.gitHub)
                     .padding()
                 Lesson_2_EmphasisView()
+                Markdown(tut2).markdownTheme(.gitHub)
+                    .padding()
             }
         }.toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing) {

@@ -18,14 +18,6 @@ enum Lesson:String {
 }
 
 
-struct Lesson_3_View:View{
-    var body: some View{
-        VStack{
-            Text("3")
-        }
-    }
-}
-
 struct Lesson_4_View:View{
     var body: some View{
         VStack{

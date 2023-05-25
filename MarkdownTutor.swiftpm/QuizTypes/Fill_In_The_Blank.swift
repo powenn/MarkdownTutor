@@ -25,9 +25,8 @@ struct Fill_In_The_Blank_View:View{
     private func checkAnswer() {
         if (answer.lowercased().md5==question.correct_answer){
             status = !status
-        } else {
-            showFloater.toggle()
         }
+        showFloater.toggle()
     }
     
     var body: some View{
@@ -39,6 +38,7 @@ struct Fill_In_The_Blank_View:View{
                     .font(.body)
                     .textFieldStyle(.roundedBorder)
                     .textInputAutocapitalization(.never)
+                    .disabled(status)
                 Button(action: {
                     checkAnswer()
                 }, label: {
@@ -46,7 +46,11 @@ struct Fill_In_The_Blank_View:View{
                 }).buttonStyle(Submit(stauts: status))
                     .disabled(status)
                     .popup(isPresented: $showFloater) {
-                        WrongAnswerNotify()
+                        if (status){
+                            CorrectAnswerNotify()
+                        } else {
+                            WrongAnswerNotify()
+                        }
                     } customize: {
                         $0
                             .type(.floater())
@@ -59,6 +63,9 @@ struct Fill_In_The_Blank_View:View{
         }
         .onTapGesture {
             hideKeyboard()
+        }
+        .onSubmit {
+            checkAnswer()
         }
         .padding()
     }

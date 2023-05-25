@@ -30,9 +30,8 @@ struct Multiple_Choice_View:View{
     private func checkAnswer() {
         if (multiSelection.map({$0.md5}).sorted().elementsEqual(question.correctAnswer.sorted())){
             status = !status
-        } else {
-            showFloater.toggle()
         }
+        showFloater.toggle()
     }
     var body: some View{
         VStack(alignment: .leading){
@@ -43,6 +42,7 @@ struct Multiple_Choice_View:View{
                     .font(.body)
             }.listStyle(.inset)
                 .environment(\.editMode, .constant(EditMode.active))
+                .disabled(status)
             Button(action: {
                 checkAnswer()
             }, label: {
@@ -50,7 +50,11 @@ struct Multiple_Choice_View:View{
             }).buttonStyle(Submit(stauts: status))
                 .disabled(status)
                 .popup(isPresented: $showFloater) {
-                    WrongAnswerNotify()
+                    if (status){
+                        CorrectAnswerNotify()
+                    } else {
+                        WrongAnswerNotify()
+                    }
                 } customize: {
                     $0
                         .type(.floater())

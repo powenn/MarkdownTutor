@@ -42,12 +42,30 @@ struct WrongAnswerNotify: View {
                 .foregroundColor(.white)
                 .frame(width: 24, height: 24)
             
-            Text("This is not the correct answer, try harder!")
+            Text("This is not the correct answer, try harder !")
                 .foregroundColor(.white)
                 .font(.system(size: 16))
         }
         .padding(16)
         .background(Color.red.cornerRadius(12))
+        .padding(.horizontal, 16)
+    }
+}
+
+
+struct CorrectAnswerNotify: View {
+    var body: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "checkmark.circle")
+                .foregroundColor(.white)
+                .frame(width: 24, height: 24)
+            
+            Text("You got the correct answer")
+                .foregroundColor(.white)
+                .font(.system(size: 16))
+        }
+        .padding(16)
+        .background(Color.green.cornerRadius(12))
         .padding(.horizontal, 16)
     }
 }

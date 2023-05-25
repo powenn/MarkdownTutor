@@ -30,9 +30,8 @@ struct Sorting_View:View{
     private func checkAnswer() {
         if ($items.wrappedValue.map({$0.md5})).elementsEqual(question.correctAnswer){
             status = !status
-        } else {
-            showFloater.toggle()
         }
+        showFloater.toggle()
     }
     var body: some View{
         VStack(alignment: .leading){
@@ -46,6 +45,7 @@ struct Sorting_View:View{
                     items.move(fromOffsets: from, toOffset: to)
                 }
             }.listStyle(.inset)
+                .disabled(status)
             Button(action: {
                 checkAnswer()
             }, label: {
@@ -53,7 +53,11 @@ struct Sorting_View:View{
             }).buttonStyle(Submit(stauts: status))
                 .disabled(status)
                 .popup(isPresented: $showFloater) {
-                    WrongAnswerNotify()
+                    if (status) {
+                        CorrectAnswerNotify()
+                    } else {
+                        WrongAnswerNotify()
+                    }
                 } customize: {
                     $0
                         .type(.floater())
