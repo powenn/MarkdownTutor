@@ -20,9 +20,10 @@ struct HomeView: View {
     var body: some View {
         VStack{
             Spacer()
-            Image("MD_Logo")
+            Image("icon")
                 .resizable()
                 .scaledToFill()
+                .cornerRadius(20)
                 .frame(
                     width:0,
                     height:UIScreen.main.bounds.height/6

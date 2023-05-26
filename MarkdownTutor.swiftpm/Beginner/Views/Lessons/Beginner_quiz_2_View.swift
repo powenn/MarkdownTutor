@@ -66,7 +66,7 @@ Also works for heading like this
         VStack{
             ScrollView{
                 Fixing_Up_View(question: question_1, editArea: $question_1_fixing_editArea)
-                    .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 350)
+                    .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 450)
                 Fixing_Up_View(question: question_2, editArea: $question_2_fixing_editArea)
                     .frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 350)
                 Fixing_Up_View(question: question_3, editArea: $question_3_fixing_editArea)

@@ -22,8 +22,8 @@ And I might submit it to Apple WWDC Student Challenge 2024 :)
 - [x] Tutorial parts
 - [x] Quizzes parts
 - [x] A simple playground
-- [ ] In-App tutorial
-- [ ] Quick experience mode for beginner
+- [x] In-App tutorial
+- [x] Quick experience mode for beginner
 - [ ] UI improvment
 
 ## Credits
