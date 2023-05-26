@@ -10,7 +10,7 @@ import MarkdownUI
 
 struct BeginnerLearnView: View {
     @ObservedObject var beginnerdefaults = BeginnerDefaults()
-    let lessons:[Lesson] = [.intro,.lesson1,.lesson2,.lesson3,.beginner_quiz_1]
+    let lessons:[Lesson] = [.intro,.lesson1,.lesson2,.lesson3,.beginner_quiz_1,.beginner_quiz_2]
     var body: some View {
         
         NavigationStack {
@@ -49,6 +49,8 @@ struct beginnerlearnView:View{
             Lesson_3_View()
         case .beginner_quiz_1:
             Beginner_quiz_1_View()
+        case .beginner_quiz_2:
+            Beginner_quiz_2_View()
         }
     }
 }
