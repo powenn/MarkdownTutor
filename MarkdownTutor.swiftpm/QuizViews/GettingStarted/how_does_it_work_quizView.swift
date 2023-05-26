@@ -26,24 +26,44 @@ struct how_does_it_work_quizView:View {
                 Fill_In_The_Blank_View(question: question_1)
                 Sorting_View(question: question_2, items: $question_2_items).frame(minWidth: UIScreen.main.bounds.width/2,minHeight: 350)
             }
-            Spacer()
-            Button(action: {
-                isShowingDialog.toggle()
-            }, label: {
-                Text(Defaults.shared.how_does_it_work_is_done ? "Done":"Mark As Done")
+//            Spacer()
+//            Button(action: {
+//                isShowingDialog.toggle()
+//            }, label: {
+//                Text(Defaults.shared.how_does_it_work_is_done ? "Done":"Mark As Done")
+//            })
+//            .disabled(Defaults.shared.how_does_it_work_is_done)
+//            .buttonStyle(Mark_As_Done(stauts: Defaults.shared.how_does_it_work_is_done))
+//            .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
+//
+//                Button("I have answered them", role: .destructive) {
+//                    Defaults.shared.how_does_it_work_is_done.toggle()
+//                    isShowingCongrats.toggle()
+//                }
+//                Button("I haven't", role: .cancel) {
+//                }
+//            }
+//            Spacer(minLength: 50)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isShowingDialog.toggle()
+                    }, label: {
+                        Image(systemName: "checkmark.seal.fill")
+                            .foregroundColor(Defaults.shared.how_does_it_work_is_done ? Color.green:Color.gray)
+                    })
+                    .disabled(Defaults.shared.how_does_it_work_is_done)
+                    .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
+                        
+                        Button("I have answered them", role: .destructive) {
+                            Defaults.shared.how_does_it_work_is_done.toggle()
+                            isShowingCongrats.toggle()
+                        }
+                        Button("I haven't", role: .cancel) {
+                        }
+                    }
+                }
             })
-            .disabled(Defaults.shared.how_does_it_work_is_done)
-            .buttonStyle(Mark_As_Done(stauts: Defaults.shared.how_does_it_work_is_done))
-            .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
-                
-                Button("I have answered them", role: .destructive) {
-                    Defaults.shared.how_does_it_work_is_done.toggle()
-                    isShowingCongrats.toggle()
-                }
-                Button("I haven't", role: .cancel) {
-                }
-            }
-            Spacer(minLength: 50)
         }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, now you understand how markdwon works", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
             .backgroundColor(.black.opacity(0.4))})
     }

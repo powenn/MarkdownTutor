@@ -22,24 +22,44 @@ struct what_is_markdown_good_for_quizView:View {
                 Fill_In_The_Blank_View(question: question_1)
                 Multiple_Choice_View(question: question_2).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 500)
             }
-            Spacer()
-            Button(action: {
-                isShowingDialog.toggle()
-            }, label: {
-                Text(Defaults.shared.what_is_markdown_good_for_is_done ? "Done":"Mark As Done")
+//            Spacer()
+//            Button(action: {
+//                isShowingDialog.toggle()
+//            }, label: {
+//                Text(Defaults.shared.what_is_markdown_good_for_is_done ? "Done":"Mark As Done")
+//            })
+//            .disabled(Defaults.shared.what_is_markdown_good_for_is_done)
+//            .buttonStyle(Mark_As_Done(stauts: Defaults.shared.what_is_markdown_good_for_is_done))
+//            .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
+//
+//                Button("I have answered them", role: .destructive) {
+//                    Defaults.shared.what_is_markdown_good_for_is_done.toggle()
+//                    isShowingCongrats.toggle()
+//                }
+//                Button("I haven't", role: .cancel) {
+//                }
+//            }
+//            Spacer(minLength: 50)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isShowingDialog.toggle()
+                    }, label: {
+                        Image(systemName: "checkmark.seal.fill")
+                            .foregroundColor(Defaults.shared.what_is_markdown_good_for_is_done ? Color.green:Color.gray)
+                    })
+                    .disabled(Defaults.shared.what_is_markdown_good_for_is_done)
+                    .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
+                        
+                        Button("I have answered them", role: .destructive) {
+                            Defaults.shared.what_is_markdown_good_for_is_done.toggle()
+                            isShowingCongrats.toggle()
+                        }
+                        Button("I haven't", role: .cancel) {
+                        }
+                    }
+                }
             })
-            .disabled(Defaults.shared.what_is_markdown_good_for_is_done)
-            .buttonStyle(Mark_As_Done(stauts: Defaults.shared.what_is_markdown_good_for_is_done))
-            .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
-                
-                Button("I have answered them", role: .destructive) {
-                    Defaults.shared.what_is_markdown_good_for_is_done.toggle()
-                    isShowingCongrats.toggle()
-                }
-                Button("I haven't", role: .cancel) {
-                }
-            }
-            Spacer(minLength: 50)
         }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, we are close to basic syntax chapter", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
             .backgroundColor(.black.opacity(0.4))})
     }

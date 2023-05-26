@@ -21,6 +21,7 @@ struct OthersView:View{
             Form(){
                 Section("Version", content: {
                     Text("Version : \(appVersion!)")
+                        .font(.body)
                 }).onTapGesture {
                     tapCount+=1
                 }

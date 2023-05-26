@@ -10,7 +10,7 @@ import MarkdownUI
 
 struct BeginnerLearnView: View {
     @ObservedObject var beginnerdefaults = BeginnerDefaults()
-    let lessons:[Lesson] = [.intro,.lesson1,.lesson2,.lesson3,.lesson4]
+    let lessons:[Lesson] = [.intro,.lesson1,.lesson2,.lesson3,.beginner_quiz_1]
     var body: some View {
         
         NavigationStack {
@@ -22,10 +22,10 @@ struct BeginnerLearnView: View {
                 } label: {
                     HStack {
                         Text(lesson.rawValue)
+                            .font(.headline)
                         Spacer()
-                        Image(systemName: "checkmark.seal.fill")
+                        Image(systemName: "checkmark.circle.fill")
                             .foregroundColor(beginnerdefaults.getDefaults(l: lesson) ? Color.green : Color.gray)
-                        
                     }
                 }
                 .font(.headline)
@@ -47,8 +47,8 @@ struct beginnerlearnView:View{
             Lesson_2_View()
         case .lesson3:
             Lesson_3_View()
-        case .lesson4:
-            Lesson_4_View()
+        case .beginner_quiz_1:
+            Beginner_quiz_1_View()
         }
     }
 }

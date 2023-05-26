@@ -33,24 +33,44 @@ line2 aftrer a horizontal rule
             ScrollView{
                 Fixing_Up_View(question: question_1, editArea: $question_1_fixing_editArea).frame(minWidth: UIScreen.main.bounds.width/3,minHeight: 350)
             }
-            Spacer()
-            Button(action: {
-                isShowingDialog.toggle()
-            }, label: {
-                Text(Defaults.shared.horizontal_rules_is_done ? "Done":"Mark As Done")
+//            Spacer()
+//            Button(action: {
+//                isShowingDialog.toggle()
+//            }, label: {
+//                Text(Defaults.shared.horizontal_rules_is_done ? "Done":"Mark As Done")
+//            })
+//            .disabled(Defaults.shared.horizontal_rules_is_done)
+//            .buttonStyle(Mark_As_Done(stauts: Defaults.shared.horizontal_rules_is_done))
+//            .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
+//
+//                Button("I have answered them", role: .destructive) {
+//                    Defaults.shared.horizontal_rules_is_done.toggle()
+//                    isShowingCongrats.toggle()
+//                }
+//                Button("I haven't", role: .cancel) {
+//                }
+//            }
+//            Spacer(minLength: 50)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isShowingDialog.toggle()
+                    }, label: {
+                        Image(systemName: "checkmark.seal.fill")
+                            .foregroundColor(Defaults.shared.horizontal_rules_is_done ? Color.green:Color.gray)
+                    })
+                    .disabled(Defaults.shared.horizontal_rules_is_done)
+                    .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
+                        
+                        Button("I have answered them", role: .destructive) {
+                            Defaults.shared.horizontal_rules_is_done.toggle()
+                            isShowingCongrats.toggle()
+                        }
+                        Button("I haven't", role: .cancel) {
+                        }
+                    }
+                }
             })
-            .disabled(Defaults.shared.horizontal_rules_is_done)
-            .buttonStyle(Mark_As_Done(stauts: Defaults.shared.horizontal_rules_is_done))
-            .confirmationDialog("Please make sure you have answered questions above", isPresented: $isShowingDialog, titleVisibility: .visible) {
-                
-                Button("I have answered them", role: .destructive) {
-                    Defaults.shared.horizontal_rules_is_done.toggle()
-                    isShowingCongrats.toggle()
-                }
-                Button("I haven't", role: .cancel) {
-                }
-            }
-            Spacer(minLength: 50)
         }.popup(isPresented: $isShowingCongrats, view: {CongratulationNotify(content: "Congrats you compeleted this paragraph, now you should know how to denote a word or phrase as code", onClose: {isShowingCongrats.toggle()})}, customize: {$0.closeOnTap(false)
             .backgroundColor(.black.opacity(0.4))})
     }

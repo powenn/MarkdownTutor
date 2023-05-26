@@ -138,6 +138,55 @@ The rendered output looks like this:
 
 * And here's the third list item.
 
+
+### Code Blocks
+
+**Code blocks** are normally indented four spaces or one tab. When they’re in a list, indent them eight spaces or two tabs.
+
+```
+1. Open the file.
+2. Find the following code block on line 21:
+
+        <html>
+          <head>
+            <title>Test</title>
+          </head>
+
+3. Update the title to match the name of your website.
+```
+
+The rendered output looks like this:
+
+1. Open the file.
+2. Find the following code block on line 21:
+
+        <html>
+          <head>
+            <title>Test</title>
+          </head>
+
+3. Update the title to match the name of your website.
+
+
+### Images
+
+```
+1. Open the file containing the Linux mascot.
+2. Marvel at its beauty.
+
+    ![Tux, the Linux mascot](/assets/images/tux.png)
+
+3. Close the file.
+```
+
+The rendered output looks like this:
+1. Open the file containing the Linux mascot.
+2. Marvel at its beauty.
+
+    ![Tux, the Linux mascot](tux)
+
+3. Close the file.
+
 ### Lists
 
 You can nest an unordered list in an ordered list, or vice versa.

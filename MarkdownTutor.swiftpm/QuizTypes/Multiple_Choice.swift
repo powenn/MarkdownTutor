@@ -40,6 +40,7 @@ struct Multiple_Choice_View:View{
             List(question.selections, id:\.self, selection: $multiSelection) { selection in
                 Text(selection)
                     .font(.body)
+                    .fixedSize(horizontal: false, vertical: true)
             }.listStyle(.inset)
                 .environment(\.editMode, .constant(EditMode.active))
                 .disabled(status)

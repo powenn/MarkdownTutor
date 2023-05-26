@@ -14,5 +14,5 @@ enum Lesson:String {
     case lesson1 = "Lesson 1"
     case lesson2 = "Lesson 2"
     case lesson3 = "Lesson 3"
-    case lesson4 = "Lesson 4"
+    case beginner_quiz_1 = "Quiz 1"
 }

@@ -42,7 +42,10 @@ struct LearnView: View {
             TabView() {
                 ScrollView{
                     VStack{
-                        Markdown(selectedParagraph?.text ?? "# Click the button on top left to choose content to read").markdownTheme(.gitHub)
+                        Markdown(selectedParagraph?.text ?? "# Click the button on top left to choose content to read")
+                            .markdownTheme(.gitHub)
+                            .markdownImageProvider(.asset)
+                            .markdownInlineImageProvider(.asset)
                     }.padding()
                 }
                 if (selectedParagraph?.hasQuiz ?? false){
