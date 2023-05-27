@@ -37,6 +37,7 @@ struct HomeView: View {
                             .font(.body)
                     }
                 }
+                .pickerStyle(.menu)
                 Button("How to use this app", action: {
                     showTutorial.toggle()
                 }).fullScreenCover(isPresented: $showTutorial, content: {
