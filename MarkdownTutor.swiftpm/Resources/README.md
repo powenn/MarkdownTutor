@@ -17,6 +17,7 @@ And I might submit it to Apple WWDC Student Challenge 2024 :)
 - Exporting iPA for sideloading after developer mode enable
     > Can you find it without reading source code :) 
 - iPhone and iPad are both support, requires iOS 16 or above
+    > For macOS, you can sideload with sideloadly
 
 ## To-Do list
 - [x] Tutorial parts
