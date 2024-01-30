@@ -25,7 +25,7 @@ And I might submit it to Apple WWDC Student Challenge 2024 :)
 - [x] A simple playground
 - [x] In-App tutorial
 - [x] Quick experience mode for beginner
-- [ ] UI improvment
+- [x] UI improvment
 
 ## Credits
 - [www.markdownguide.org](https://www.markdownguide.org) and here is its [github repo](https://github.com/mattcone/markdown-guide)

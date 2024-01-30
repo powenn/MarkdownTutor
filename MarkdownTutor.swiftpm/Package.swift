@@ -40,14 +40,16 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/gonzalezreal/swift-markdown-ui", "2.0.0"..<"3.0.0"),
-        .package(url: "https://github.com/exyte/PopupView", "2.0.0"..<"3.0.0")
+        .package(url: "https://github.com/exyte/PopupView", "2.0.0"..<"3.0.0"),
+        .package(url: "https://github.com/Lakr233/ColorfulX", "2.3.1"..<"3.0.0")
     ],
     targets: [
         .executableTarget(
             name: "AppModule",
             dependencies: [
                 .product(name: "MarkdownUI", package: "swift-markdown-ui"),
-                .product(name: "PopupView", package: "popupview")
+                .product(name: "PopupView", package: "popupview"),
+                .product(name: "ColorfulX", package: "colorfulx")
             ],
             path: ".",
             resources: [
