@@ -29,7 +29,7 @@ And I might submit it to Apple WWDC Student Challenge 2024 :)
 
 ## Credits
 - [www.markdownguide.org](https://www.markdownguide.org) and here is its [github repo](https://github.com/mattcone/markdown-guide)
-    >  Using its tutorial under MIT license
+    >  Using its tutorial under [MIT license](https://github.com/powenn/MarkdownTutor/blob/main/MarkdownTutor.swiftpm/Resources/LICENSE.txt) and [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)
     
 ## Swift package used 
 
