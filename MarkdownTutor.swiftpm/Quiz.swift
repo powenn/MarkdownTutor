@@ -86,17 +86,30 @@ struct CongratulationNotify: View {
                 .opacity(0.6)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 20)
-            Button("Thanks") {
+//            Button("Thanks") {
+//                onClose()
+//            }
+//            .buttonStyle(.plain)
+//            .font(.system(size: 18, weight: .bold))
+//            .frame(maxWidth: .infinity)
+//            .padding(.vertical, 18)
+//            .padding(.horizontal, 24)
+//            .foregroundColor(.white)
+//            .background(Color.teal)
+//            .cornerRadius(12)
+            
+            HStack{
+                Text("Thanks")
+                    .font(.system(size: 18, weight: .bold))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 18)
+                    .padding(.horizontal, 24)
+                    .foregroundColor(.white)
+                    .background(Color.teal)
+                    .cornerRadius(12)
+            }.onTapGesture {
                 onClose()
             }
-            .buttonStyle(.plain)
-            .font(.system(size: 18, weight: .bold))
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 18)
-            .padding(.horizontal, 24)
-            .foregroundColor(.white)
-            .background(Color.teal)
-            .cornerRadius(12)
         }
         .padding(EdgeInsets(top: 37, leading: 24, bottom: 40, trailing: 24))
         .background(Color.white.cornerRadius(20))
@@ -111,3 +124,9 @@ struct default_quizView:View {
         Text("\(caseRawValue)")
     }
 }
+
+#Preview(body: {
+    CongratulationNotify(content: "Test", onClose: {
+        print("closed")
+    })
+})

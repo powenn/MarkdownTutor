@@ -78,13 +78,13 @@ Also works for heading like this
                     isShowingDialog.toggle()
                 }, label: {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(BeginnerDefaults.shared.beginner_quiz_1_is_done ? Color.green:Color.gray)
+                        .foregroundColor(BeginnerDefaults.shared.beginner_quiz_2_is_done ? Color.green:Color.gray)
                 })
-                .disabled(BeginnerDefaults.shared.beginner_quiz_1_is_done)
+                .disabled(BeginnerDefaults.shared.beginner_quiz_2_is_done)
                 .confirmationDialog("Please make sure you have complete this quiz", isPresented: $isShowingDialog, titleVisibility: .visible) {
                     
                     Button("I have", role: .destructive) {
-                        BeginnerDefaults.shared.beginner_quiz_1_is_done.toggle()
+                        BeginnerDefaults.shared.beginner_quiz_2_is_done.toggle()
                         isShowingCongrats.toggle()
                     }
                     Button("I haven't", role: .cancel) {
