@@ -4,6 +4,7 @@ import ColorfulX
 struct ContentView: View {
     @State var startClick:Bool = false
     @AppStorage("selectedMode") var selectedMode:TutorMode = TutorMode.beginner
+    @AppStorage("playBackgroundMusic") var playBackgroundMusic:Bool = true
     
     @State var colors: [Color] = ColorfulPreset.allCases.randomElement()!.colors
     let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
@@ -27,6 +28,10 @@ struct ContentView: View {
                 })
         }.onReceive(timer, perform: { _ in
             colors = ColorfulPreset.allCases.randomElement()!.colors
-        })
+        }).onAppear{
+            if playBackgroundMusic {
+                startBackgroundMusic()
+            }
+        }
     }
 }

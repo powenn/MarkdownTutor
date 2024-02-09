@@ -49,6 +49,9 @@ struct WrongAnswerNotify: View {
         .padding(16)
         .background(Color.red.cornerRadius(12))
         .padding(.horizontal, 16)
+        .onAppear{
+            playWAMusic()
+        }
     }
 }
 
@@ -67,6 +70,9 @@ struct CorrectAnswerNotify: View {
         .padding(16)
         .background(Color.green.cornerRadius(12))
         .padding(.horizontal, 16)
+        .onAppear{
+            playCAMusic()
+        }
     }
 }
 
@@ -114,6 +120,9 @@ struct CongratulationNotify: View {
         .padding(EdgeInsets(top: 37, leading: 24, bottom: 40, trailing: 24))
         .background(Color.white.cornerRadius(20))
         .padding(40)
+        .onAppear{
+            playCongratsMusic()
+        }
     }
 }
 

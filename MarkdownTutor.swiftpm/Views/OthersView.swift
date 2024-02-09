@@ -13,6 +13,7 @@ struct OthersView:View{
     
     @Environment(\.dismiss) var dismiss
     @AppStorage("developer_mode") var developer_mode = false
+    @AppStorage("playBackgroundMusic") var playBackgroundMusic:Bool = true
     @State var tapCount = 0
     @State var showTutorial = false
     
@@ -39,6 +40,15 @@ struct OthersView:View{
                    })
                     
                     Link("Source code", destination: URL(string: "https://github.com/powenn/MarkdownTutor")!)
+                    
+                    Toggle("Background Music", isOn: $playBackgroundMusic).onChange(of: playBackgroundMusic) { value in
+                        if value == false {
+                            stopBackgroundMusic()
+                        } else {
+                            startBackgroundMusic()
+                        }
+                    }
+                    
                     if (tapCount>=6 || developer_mode) {
                         Toggle("Developer Mode", isOn: $developer_mode)
                     }
@@ -74,3 +84,7 @@ struct README_View:View{
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
+#Preview(body: {
+    OthersView()
+})
