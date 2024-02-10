@@ -18,11 +18,11 @@ struct Editing_Question {
 
 struct Editing_View:View{
     let question:Editing_Question
-    @State var editArea:String = ""
+    @State private var editArea:String = ""
     
-    @State var view_index = 0
-    @State var is_show_rendered:Bool = false
-    @State var is_show_template:Bool = false
+    @State private var view_index = 0
+    @State private var is_show_rendered:Bool = false
+    @State private var is_show_template:Bool = false
     
     var body: some View {
         TabView(selection: $view_index){

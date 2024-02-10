@@ -18,7 +18,7 @@ struct Fill_In_The_Blank_Question {
 
 struct Fill_In_The_Blank_View:View{
     let question:Fill_In_The_Blank_Question
-    @State var status:Bool = false
+    @State private var status:Bool = false
     @State private var answer:String = ""
     @State private var showFloater = false
     

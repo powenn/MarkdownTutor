@@ -22,10 +22,10 @@ struct Multiple_Choice_Question {
 
 struct Multiple_Choice_View:View{
     let question:Multiple_Choice_Question
-    @State var status:Bool = false
+    @State private var status:Bool = false
     @State private var showFloater = false
     
-    @State var multiSelection = Set<String>()
+    @State private var multiSelection = Set<String>()
     
     private func checkAnswer() {
         if (multiSelection.map({$0.md5}).sorted().elementsEqual(question.correctAnswer.sorted())){

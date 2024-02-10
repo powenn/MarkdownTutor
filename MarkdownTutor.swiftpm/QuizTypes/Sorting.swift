@@ -22,7 +22,7 @@ struct Sorting_Question{
 
 struct Sorting_View:View{
     let question:Sorting_Question
-    @State var status:Bool = false
+    @State private var status:Bool = false
     @State private var showFloater = false
     @Binding var items:[String]
     

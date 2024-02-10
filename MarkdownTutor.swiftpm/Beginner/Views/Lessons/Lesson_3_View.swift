@@ -1,6 +1,6 @@
 //
 //  Lesson_3_View.swift
-//  
+//
 //
 //  Created by 蕭博文 on 2023/5/24.
 //
@@ -17,6 +17,7 @@ struct Lesson_3_View:View{
 
 - Lists
 - Code
+- Fenced Code Blocks
 ---
 
 ## Lists
@@ -47,11 +48,18 @@ For Example:
 
 To denote a word or phrase as code, enclose it in backticks (`).
 
-For Example:<br>
-This is \\`code\\`
+Toggle the button to see the different rendered output of enclosed in backticks or not.
+"""
+    
+    
+    let tut3:String = """
+---
 
-### Rendered Output
-This is `code`
+## Fenced Code Blocks
+
+To create code blocks , use three backticks (```) on the lines before and after the code block.
+
+Toggle the button to see the different rendered output of enclosed in  three backticks or not.
 """
     
     @State var isShowingDialog = false
@@ -65,6 +73,10 @@ This is `code`
                 Lesson_3_ListsView().frame(minWidth: UIScreen.main.bounds.width/2,minHeight: 350)
                 Markdown(tut2).markdownTheme(.gitHub)
                     .padding()
+                Lesson_3_CodeView()
+                Markdown(tut3).markdownTheme(.gitHub)
+                    .padding()
+                Lesson_3_FencedCodeBlockView()
             }
         }.toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -107,12 +119,79 @@ struct Lesson_3_ListsView:View{
                     items.move(fromOffsets: from, toOffset: to)
                 }
             }.listStyle(.inset)
-//            Text(items.joined(separator: "\n"))
+            //            Text(items.joined(separator: "\n"))
             Text("Rendered Output")
                 .font(.headline)
             Markdown("""
 \(items.joined(separator: "\n"))
 """)
+        }.padding()
+    }
+}
+
+struct Lesson_3_CodeView:View{
+    @State var hasbackticks:Bool = true
+    var body: some View{
+        VStack(alignment: .leading) {
+            Toggle("Enclosed:\(hasbackticks.description)", isOn: $hasbackticks)
+                .font(.headline)
+            Text(hasbackticks ? "\\`print(\"This is an example\")\\`" : "print(\"This is an example\")")
+                .font(.body)
+                .padding()
+                .border(.primary)
+            Text("Rendered Output")
+                .font(.headline)
+            Markdown("""
+\(hasbackticks ? "`print(\"This is an example\")`" : "print(\"This is an example\")")
+""")
+            .markdownTheme(.gitHub)
+            .padding()
+            .border(.primary)
+        }.padding()
+    }
+}
+
+struct Lesson_3_FencedCodeBlockView:View{
+    @State var hasbackticks:Bool = true
+    var body: some View{
+        VStack(alignment: .leading) {
+            Toggle("Enclosed:\(hasbackticks.description)", isOn: $hasbackticks)
+                .font(.headline)
+            Text(hasbackticks ?
+            """
+            \\`\\`\\`
+            while alive {
+                Breath()
+            }
+            \\`\\`\\`
+            """ :
+            """
+            while alive {
+                Breath()
+            }
+            """
+            )
+            .font(.body)
+            .padding()
+            .border(.primary)
+            Text("Rendered Output")
+                .font(.headline)
+            Markdown(hasbackticks ?
+            """
+            ```
+            while alive {
+                Breath()
+            }
+            ```
+            """ :
+            """
+            while alive {
+                Breath()
+            }
+            """)
+            .markdownTheme(.gitHub)
+            .padding()
+            .border(.primary)
         }.padding()
     }
 }

@@ -36,7 +36,7 @@ Add one asterisk or underscore before and after a word or phrase.
 For Example :<br>
 \\*Italic\\*
 
-> You can adjust the number of asterisks to see the rendered output of different number of number asterisks.
+> You can adjust the number of asterisks to see the rendered output of different number of asterisks.
 """
     
 
@@ -48,11 +48,7 @@ For Example :<br>
 
 Add a > in front of a paragraph to create a blockquote.
 
-For example :<br>
-`> A line in blocakquote`
-
-The rendered output looks like this:
-> A line in blocakquote
+> You can adjust the number of blocakquotes to see the rendered output of different number of blocakquotes.
 """
     
     @State var isShowingDialog = false
@@ -66,6 +62,7 @@ The rendered output looks like this:
                 Lesson_2_EmphasisView()
                 Markdown(tut2).markdownTheme(.gitHub)
                     .padding()
+                Lesson_2_BlockquoteView()
             }
         }.toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -97,7 +94,7 @@ struct Lesson_2_EmphasisView:View{
     @State var number = 0
     var body: some View{
         VStack(alignment: .leading){
-            Stepper("Number of number asterisks", value: $number,in: 0...3)
+            Stepper("Number of asterisks", value: $number,in: 0...3)
                 .font(.headline)
             Text("\(String.init(repeating: "*", count: number))Text\(String.init(repeating: "*", count: number))")
                 .font(.body)
@@ -107,6 +104,29 @@ struct Lesson_2_EmphasisView:View{
                 .font(.headline)
             Markdown("""
 \(String.init(repeating: "*", count: number))Text\(String.init(repeating: "*", count: number))
+""")
+            .markdownTheme(.gitHub)
+            .padding()
+            .border(.primary)
+        }.padding()
+    }
+}
+
+
+struct Lesson_2_BlockquoteView:View{
+    @State var number = 1
+    var body: some View{
+        VStack(alignment: .leading){
+            Stepper("Number of blocakquotes", value: $number,in: 0...5)
+                .font(.headline)
+            Text("\(String.init(repeating: ">", count: number)) Text")
+                .font(.body)
+                .padding()
+                .border(.primary)
+            Text("Rendered Output")
+                .font(.headline)
+            Markdown("""
+\(String.init(repeating: ">", count: number)) Text
 """)
             .markdownTheme(.gitHub)
             .padding()

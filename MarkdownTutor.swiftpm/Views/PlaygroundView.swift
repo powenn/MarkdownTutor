@@ -22,6 +22,8 @@ Feel free to write down anything
 >
 > **Some extended syntax might not work**
 >> This message will only appear when playground is empty
+
+![AppIcon](AppIcon)
 """
     
     var body: some View{
@@ -61,5 +63,6 @@ Feel free to write down anything
             .onTapGesture {
                 hideKeyboard()
             }
+            .markdownImageProvider(.asset)
     }
 }
